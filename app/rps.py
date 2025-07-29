@@ -1,6 +1,3 @@
-from google.colab import userdata
-PLAYER_NAME = userdata.get('PLAYER_NAME')
-print(f"Welcome {PLAYER_NAME}, to our Rock Paper Scissors Game!")
 
 valid_selections = ["rock", "paper", "scissors"]
 while True:
@@ -9,7 +6,7 @@ while True:
         print(f"You chose: {player_selection}")
         break
     else:
-        print(f"So close {PLAYER_NAME}. Try again — type Rock, Paper, or Scissors.")
+        print(f"So close dude. Try again — type Rock, Paper, or Scissors.")
 
 import random
 
