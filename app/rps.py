@@ -1,28 +1,54 @@
 
-valid_selections = ["rock", "paper", "scissors"]
-while True:
-    player_selection = input("Please select Rock, Paper, or Scissors: ").strip().lower()
-    if player_selection in valid_selections:
-        print(f"You chose: {player_selection}")
-        break
-    else:
-        print(f"So close dude. Try again — type Rock, Paper, or Scissors.")
+# THIS IS MY ROCK PAPER SCISSORS GAME
+# this is the "app/rps.py" file...
 
 import random
 
-computer_selection = random.choice(valid_selections)
+VALID_OPTIONS = ["rock", "paper", "scissors"]
 
-print(f"The computer chose: {computer_selection}")
+def determine_winner(u, c):
+    if u == c:
+        result = "TIE GAME"
+    elif u == "rock" and c == "scissors":
+        result = "USER WINS"
+    elif u == "rock" and c == "paper":
+        result = "COMP WINS"
+    elif u == "scissors" and c == "rock":
+        result = "COMP WINS"
+    elif u == "scissors" and c == "paper":
+        result = "USER WINS"
+    elif u == "paper" and c == "rock":
+        #result = "COMP WINS" # OOPS THAT WAS A BUG :-/
+        result = "USER WINS" # BUG FIXED!!! :-)
+    elif u == "paper" and c == "scissors":
+        result = "COMP WINS"
+    return result
 
-if player_selection == computer_selection:
-    result = "TIE! Please try again"
-elif (
-    (player_selection == "rock" and computer_selection == "scissors") or
-    (player_selection == "paper" and computer_selection == "rock") or
-    (player_selection == "scissors" and computer_selection == "paper")
-):
-    result = f"You Win! Lets play again?"
-else:
-    result = "Lenny Wins! Lets play again?"
 
-print(result)
+# ONLY RUN THE CODE INDENTED INSIDE
+# ... IF WE ARE RUNNING THIS SCRIPT FROM THE COMMAND LINE
+# ... BUT NOT IF WE ARE IMPORTING
+if __name__ == "__main__":
+
+    print("WELCOME TO MY GAME...")
+
+    player_choice = input("Please select an option ('rock', 'paper', 'scissors'): ")
+    print("USER CHOSE:", player_choice)
+
+    # todo: validation step
+
+    computer_choice = random.choice(VALID_OPTIONS)
+    print("COMPUTER CHOSE:", computer_choice)
+
+    result_message = determine_winner(player_choice, computer_choice)
+    print(result_message)
+
+
+
+
+
+
+
+
+
+
