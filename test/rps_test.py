@@ -14,3 +14,5 @@ def test_winner():
     assert determine_winner("paper", "scissors") == "COMP WINS"
     assert determine_winner("scissors", "paper") == "USER WINS"
     assert determine_winner("scissors", "rock") == "COMP WINS"
+
+    #Tests
